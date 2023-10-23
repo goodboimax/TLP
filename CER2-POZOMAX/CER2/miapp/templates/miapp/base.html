@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INF JMC | {{ title }}</title>
+    <link rel="stylesheet" href="{% static 'miapp/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="{% static 'estilos.css' %}" />
+
+  </head>
+  <body>
+
+    
+      {% include 'miapp/header.html'%}
+      <div class="row d-xxl-none">
+        {% include 'miapp/nav.html' %}
+     </div>
+   
+      <div class="row d-none d-xxl-block">
+        {% include 'miapp/carrusel.html' %}
+      </div>
+
+        <section class="col d-xxl-none cuerpo">
+          {% block content %}
+
+          {% endblock %}
+        </section>
+    
+      
+  </body>
+</html>
+

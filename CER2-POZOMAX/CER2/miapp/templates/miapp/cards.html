@@ -1,0 +1,35 @@
+
+{% extends 'miapp/base.html' %}
+
+{% block content %}
+<div style="margin: 20px" id="tarjetas">
+
+<div class="row ms-auto justify-content-center"style="margin-top: 10px" > 
+
+{% for comunicado in comunicados%}
+{% if comunicado.visible == True %}
+<div class="col-md-6 col-lg-4 col-sm-6">
+
+<div class="card" style="width: 22rem;margin-bottom: 10px;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{comunicado.titulo}}</h5>
+      <h6 class = "card-subtitle mb-2 text-body-secondary"> {{comunicado.Entidad.nombre}}</h6>
+      <div class="d-none d-sm-block">
+      <p class="card-text">{{comunicado.detalle}} </p>
+      <p class="card-text"><small class="text-body-secondary">Publicado por: {{comunicado.publicado_por}}</small></p>
+     <small class="text-body-secondary">{{comunicado.fecha_publicacion}}</small>
+    </div>
+    <div class=" d-block d-sm-none">
+      <p class="card-text ">{{comunicado.detalle_corto}}</p>
+    </div>
+    
+    </div>
+  </div>
+</div>
+{% endif %}
+{%endfor%}
+
+</div>
+</div>
+{% endblock %}
