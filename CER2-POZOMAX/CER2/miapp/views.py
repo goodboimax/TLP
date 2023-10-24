@@ -22,7 +22,7 @@ def cards(request):
 
     
     data = {
-        "comunicados":comunicados,
+        "comunicados":comunicados.order_by('-fecha_publicacion'),
         "entidades":entidades,
         "title": title,
         "entidad_combobox": entidad_combobox 
