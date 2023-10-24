@@ -1,14 +1,16 @@
 {% load static %}
 <div class="row" style="padding-bottom: 2vh;padding-top: 3vh" id="header" >
     <div class="col-4 col-12-xs" id="img_logo">
-    
+<!--Misma imagen con distintas dimensiones para distintos tamanios de pantalla-->    
     <div class="d-none d-sm-block">
         <img src="{% static "miapp/img/Logo_UTFSM.png" %}" style="max-width: 8vw; max-height: fit-content;" alt =" Logo_UTFSM"  class="img_responsive" id="img_logo">
     </div>
+
     <div class="d-block d-sm-none">
         <img src="{% static "miapp/img/Logo_UTFSM.png" %}" style="max-width: 50vw;" alt =" Logo_UTFSM"  class="img_responsive justify-content-right" id="img_logo">
     </div>
-    </div>
+    
+</div>
     <div class="col-8 d-none d-sm-block">
       <h1 class = "text-left " > Sistema Integrado de notificaciones</h1>
     </div>

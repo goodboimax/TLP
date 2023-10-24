@@ -1,36 +1,44 @@
 
-  {% load static %}
-  <!--Una vez mas no funciona no tengo idea porque, aveces funciona aveces no un misterio para mi los carruseles son mi kriptonita-->
-  <div style="margin-top: 30px">
-  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true" data-interval="3000">
-    <div class="carousel-inner">
-  
-  {% for  comunicado in comunicados %}
-  {% if comunicado.visible == True %}
-  <div class="carousel-item active" data-interval="1000">
-    <div class="card mx-auto p-2" style="width: 75rem; height: 40rem;" id="Cartas">
-      <div id="titulo" style="text-align: center;"> <h1>{{comunicado.titulo}} </h1></div>
-      <div class="card-body"> 
-        <p class="card-text"> {{comunicado.detalle}} </p>
-        <p class="card-text"> {{comunicado.detalle_corto}}</p>
-        <h4>{{comunicado.Entidad.nombre}}</h4>
-        <p class="card-text"><small class="text-body-secondary">Publicado por: {{comunicado.publicado_por}}</small></p>
-        <p class="card-text"><small class="text-body-secondary">{{comunicado.fecha_publicacion}}</small></p>
-        <img src="{{comunicado.Entidad.logo}}" alt="logo">
+{% load static %}
+<div style="margin-top: 30px">
+<div id="carouselExampleRide" class="carousel slide" data-bs-ride="true" data-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <div class="card mx-auto p-2" style="width: 75rem; height: 40rem;" id="Cartas">
+        <!--
+        Pongo una imagen porque lo primero del carrusel tiene que ser clase carousel-item active y no sabia como poner la primera 
+        instancia de los comunicados sin que se rompa
+       -->
+
+        <img src="{% static "miapp/img/Logo_UTFSM.png" %}" style="max-width: 50vw;" alt =" Logo_UTFSM"  class="img_responsive justify-content-right" id="img_logo">
       </div>
     </div>
-  </div>
-  {% endif %}
-  {% endfor %}
-  
+{% for  comunicado in comunicados %}
+{% if comunicado.visible == True %}
+<div class="carousel-item">
+  <div class="card mx-auto p-2" style="width: 75rem; height: 40rem;" id="Cartas">
+    <div id="titulo" style="text-align: center;"> <h1>{{comunicado.titulo}} </h1></div>
+    <div class="card-body"> 
+      <p class="card-text"> {{comunicado.detalle}} </p>
+      <p class="card-text"> {{comunicado.detalle_corto}}</p>
+      <h4>{{comunicado.Entidad.nombre}}</h4>
+      <p class="card-text"><small class="text-body-secondary">Publicado por: {{comunicado.publicado_por}}</small></p>
+      <p class="card-text"><small class="text-body-secondary">{{comunicado.fecha_publicacion}}</small></p>
+      <img src="{{comunicado.Entidad.logo}}" alt="logo">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+</div>
+{% endif %}
+{% endfor %}
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 </div>
